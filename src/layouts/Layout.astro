@@ -1,0 +1,39 @@
+---
+import '../assets/styles/tailwind.css';
+
+import CustomStyles from '@/components/CustomStyles.astro';
+import { headerData } from '@/data/navigation';
+import TopNavbar from '@components/commons/TopNavbar.astro';
+import BasicScripts from '@/components/common/BasicScripts.astro';
+import type { MetaData } from '@/types';
+
+import { ViewTransitions } from 'astro:transitions';
+import Metadata from '@/components/common/Metadata.astro';
+interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <Metadata {...metadata} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <CustomStyles />
+    <!-- Uncomment line below to activate View Transitions -->
+    <ViewTransitions fallback="swap" />
+  </head>
+  <body class="antialiased text-default bg-page tracking-tight">
+    <TopNavbar id="header" isSticky showToggleTheme {...headerData} />
+
+    <slot />
+
+    <BasicScripts />
+  </body>
+</html>

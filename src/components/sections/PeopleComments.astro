@@ -1,0 +1,65 @@
+---
+// section to shouw people comment of the ramen shop
+const commentsData = [
+  {
+    name: "John Doe",
+    date: "12-12-2023",
+    comment: "The ramen here is amazing!",
+  },
+  {
+    name: "Jane Smith",
+    date: "12-13-2023",
+    comment: "I love the variety of flavors. Highly recommended!",
+  },
+  {
+    name: "Alice Johnson",
+    date: "12-14-2023",
+    comment: "Great atmosphere and friendly staff!",
+  },
+  {
+    name: "Bob Anderson",
+    date: "12-15-2023",
+    comment: "The miso ramen is my favorite. So delicious!",
+  },
+  {
+    name: "Eva Garcia",
+    date: "12-16-2023",
+    comment: "Visited with friends and had a fantastic time. Will come back!",
+  },
+  {
+    name: "Michael Brown",
+    date: "12-17-2023",
+    comment: "Authentic taste and quick service. Impressed!",
+  },
+  // Add more comments as needed
+];
+---
+
+<section
+  class="container m-auto my-16 bg-slate-200 pattern-hive-amber-700/50 pattern-hive-scale-50 pt-4"
+>
+  <div class="flex justify-center m-8 relative">
+    <h2
+      class="text-slate-700 text-center font-sans text-4xl p-4 blur-none relative before:bg-slate-50 before:bg-opacity-80 before:bg-blend-saturation before:absolute before:top-0 before:left-0 before:h-full before:w-full before:z-[-1] before:blur-md"
+    >
+      Our customers are saying!
+    </h2>
+  </div>
+
+  <div class="flex flex-row overflow-x-auto py-8">
+    {
+      commentsData.map((comment, index) => {
+        return (
+          <div class="rounded-lg  text-slate-700 min-w-[25vw] bg-slate-50  p-8  shadow-xl min-h-[250px] relative flex items-center justify-center mx-8">
+            <div class="flex flex-col border-l-4 border-slate-400 pl-2">
+              <p class="mb-4">{comment.comment}</p>
+              <h3 class="text-lg flex justify-center whitespace-nowrap ">
+                {comment.name}
+              </h3>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
